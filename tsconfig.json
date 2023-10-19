@@ -9,7 +9,14 @@
     "noUnusedParameters": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "lib": ["es2016", "dom"],
-    "pretty": true
-  }
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "pretty": true,
+    "moduleResolution": "node",
+    "noEmit": true,
+    "allowJs": true
+  },
+  "extends": "@tokilabs/tsconfig/base.json"
 }

@@ -1,20 +1,48 @@
 {
-  "name": "pug-monorepo",
-  "private": true,
+  "name": "madthax-pug-ts",
+  "version": "1.0.0",
+  "description": "Pug 4.0 is a TypeScript version of the Pug.",
+  "author": "Thassio Werlang <thassio.werlang@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madthax/pug-ts"
+  },
+  "keywords": [
+    "pug",
+    "pug-ts",
+    "pug4",
+    "typescript"
+  ],
   "@rollingversions/ignore": true,
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "coveralls": "3.0.9",
-    "jest": "^26.0.1",
-    "prettier": "1.19.1",
+    "@babel/eslint-parser": "^7.21.8",
+    "@tokilabs/eslint-config": "^1.0.1",
+    "@tokilabs/jest-presets": "^1.0.1",
+    "@tokilabs/prettier-config": "^1.0.1",
+    "@tokilabs/pug3-cli": "^3.0.0",
+    "@tokilabs/tsconfig": "^1.0.1",
+    "coveralls": "3.1.1",
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-import-resolver-node": "^0.3.7",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "install": "^0.13.0",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "ts-jest": "^29.1.0",
     "typescript": "^4.1.2",
     "wsrun": "^5.2.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pugjs/pug.git"
   },
   "scripts": {
     "prettier:check": "prettier --ignore-path .gitignore --list-different './**/*.js'",
@@ -28,11 +56,20 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "snapshotSerializers": [
-      "./scripts/filename-serializer.js",
-      "./scripts/prettier-javascript-serializer.js",
-      "./scripts/buffer-serializer.js"
-    ]
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage"
   },
   "license": "MIT"
 }
